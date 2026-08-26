@@ -86,3 +86,14 @@ The application provides the following menu options:
 ## Author
 
 Developed as part of the C++ Programming Virtual Internship at Thiranex.
+
+## Screenshots
+
+### Main Menu
+![Main Menu](screenshots/main-menu.png)
+
+### Adding a Student
+![Add Student](screenshots/add-student.png)
+
+### Displaying Student Records
+![Display Students](screenshots/display-students.png)
