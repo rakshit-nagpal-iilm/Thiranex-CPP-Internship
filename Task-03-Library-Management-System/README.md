@@ -1,24 +1,25 @@
 # Library Management System
 
-A console-based **Library Management System** developed in C++ as part of the **Thiranex C++ Internship**.
+A console-based **Library Management System** developed in C++ as part of the **Thiranex C++ Internship Program**.
 
-The application manages books, library members, book issuing, book returns, searching, and persistent data storage using text files.
+The application provides a simple way to manage books and library members while supporting book searching, issuing, returning, and persistent storage using text files.
 
 ---
 
 ## Project Objective
 
-The objective of this project is to build a simple and efficient Library Management System using C++ and Object-Oriented Programming concepts.
+The objective of this project is to develop a functional Library Management System using C++ and Object-Oriented Programming concepts.
 
-The system allows users to:
+The system is designed to manage basic library operations such as:
 
-- Add books
-- Add members
-- Display books
-- Search for books
-- Issue books
-- Return books
-- Store records permanently using text files
+- Adding books
+- Adding members
+- Displaying books
+- Searching for books
+- Issuing books
+- Returning books
+- Maintaining book availability
+- Saving records using file handling
 
 ---
 
@@ -26,8 +27,8 @@ The system allows users to:
 
 ### Book Management
 
-- Add new books
-- Store Book ID
+- Add new books to the library
+- Store a unique Book ID
 - Store book title
 - Store author name
 - Track book availability
@@ -35,8 +36,8 @@ The system allows users to:
 
 ### Member Management
 
-- Add new library members
-- Store Member ID
+- Register new library members
+- Store a unique Member ID
 - Store member name
 
 ### Search Functionality
@@ -48,23 +49,30 @@ Books can be searched using:
 
 ### Book Issue System
 
-- Issue a book to a registered member
-- Verify that the book exists
-- Verify that the member exists
-- Prevent an unavailable book from being issued again
-- Update book availability after issue
+The system allows a book to be issued to a registered member.
+
+Before issuing a book, the application verifies:
+
+- The book exists
+- The member exists
+- The book is currently available
+
+After a successful issue, the availability status of the book is updated.
 
 ### Book Return System
 
-- Return an issued book
-- Update book availability after return
-- Make the returned book available for future borrowing
+The system allows an issued book to be returned.
 
-### File Handling
+After a successful return:
 
-The application stores book and member information in text files.
+- The book status is updated
+- The book becomes available for borrowing again
 
-This allows the data to remain available even after the program is closed and started again.
+### Persistent Data Storage
+
+The application uses text files to store book and member records.
+
+This means the saved information remains available even after the application is closed and started again.
 
 ---
 
@@ -83,15 +91,15 @@ This allows the data to remain available even after the program is closed and st
 
 ## C++ Concepts Used
 
-This project demonstrates the use of:
+The project demonstrates the use of several C++ concepts, including:
 
 - Classes and Objects
 - Functions
 - Constructors
-- File Input and Output
-- Conditional Statements
-- Loops
 - Strings
+- Loops
+- Conditional Statements
+- File Input and Output
 - Searching Records
 - Data Validation
 - Object-Oriented Programming
@@ -121,40 +129,41 @@ This project demonstrates the use of:
 
 ## How to Compile
 
-Open the terminal inside the project directory and run:
+Open a terminal inside the `Task-03-Library-Management-System` directory and run:
 
     g++ main.cpp -o library
 
-This will generate the executable file:
+On Windows, this generates:
 
     library.exe
-
-on Windows.
 
 ---
 
 ## How to Run
 
-After compilation, run:
+After successful compilation, run:
 
     .\library.exe
 
-or:
+Alternatively, in Windows Command Prompt:
 
     library.exe
 
 ---
 
-## Sample Book Record
+## Example Book
+
+The following book was used while testing the application:
 
     Book ID : 101
     Title   : The Alchemist
     Author  : Paulo Coelho
-    Status  : Available
 
 ---
 
-## Sample Member Record
+## Example Member
+
+The following member was used while testing:
 
     Member ID   : 201
     Member Name : Rahul Sharma
@@ -167,23 +176,75 @@ A typical workflow of the application is:
 
 1. Start the Library Management System.
 2. Add a new book.
-3. Add a new library member.
+3. Register a new library member.
 4. Search for the book using its title or author.
 5. Issue the book to the registered member.
 6. Return the issued book.
-7. Exit the program.
-8. Restart the application.
-9. Search for the saved book again to verify data persistence.
+7. Exit the application.
+8. Start the application again.
+9. Search for the previously saved book to verify data persistence.
 
 ---
 
-## Data Persistence
+# Screenshots
 
-The application uses text files to save information permanently.
+The following screenshots demonstrate the major features of the application.
+
+## Main Menu
+
+The main menu provides access to the different Library Management System operations.
+
+![Library Management System Main Menu](screenshots/main-menu.png)
+
+---
+
+## Add Book
+
+A new book is added to the library with its Book ID, title, and author information.
+
+![Add Book](screenshots/add-book.png)
+
+---
+
+## Add Member
+
+A new library member is registered with a Member ID and name.
+
+![Add Member](screenshots/add-member.png)
+
+---
+
+## Search Book
+
+The search functionality allows stored books to be found using their title or author.
+
+![Search Book](screenshots/search-book.png)
+
+---
+
+## Issue Book
+
+A registered member can borrow an available book using the Book ID and Member ID.
+
+![Issue Book](screenshots/issue-book.png)
+
+---
+
+## Return Book
+
+An issued book can be returned, after which its status becomes available again.
+
+![Return Book](screenshots/return-book.png)
+
+---
+
+## Data Storage
+
+The application uses text files for persistent storage.
 
 ### books.txt
 
-Stores book information such as:
+The `books.txt` file stores book-related information such as:
 
 - Book ID
 - Book title
@@ -192,55 +253,40 @@ Stores book information such as:
 
 ### members.txt
 
-Stores member information such as:
+The `members.txt` file stores member-related information such as:
 
 - Member ID
 - Member name
 
-The stored information remains available even after the program is closed.
-
----
-
-## Screenshots
-
-The `screenshots` folder contains screenshots demonstrating the major functions of the application.
-
-### Main Menu
-
-Shows the main options available in the Library Management System.
-
-### Add Book
-
-Shows the process of adding a new book.
-
-### Add Member
-
-Shows the process of registering a new library member.
-
-### Search Book
-
-Shows a successful book search using the title or author.
-
-### Issue Book
-
-Shows a book being successfully issued to a registered member.
-
-### Return Book
-
-Shows an issued book being successfully returned.
+Because the information is stored in files, records remain available after restarting the program.
 
 ---
 
 ## Git Ignore
 
-Compiled executable and object files are excluded from the Git repository using the `.gitignore` file.
+Generated executable and object files are excluded from the Git repository using `.gitignore`.
 
-The `.gitignore` contains:
+The `.gitignore` file contains:
 
     *.exe
     *.o
 
-This prevents generated compilation files from being uploaded to GitHub.
+This prevents compiled files such as `library.exe` from being committed to the repository.
+
+---
+
+## Testing
+
+The application was tested for the following operations:
+
+- Adding a book
+- Adding a member
+- Displaying stored books
+- Searching for a book
+- Issuing an available book
+- Returning an issued book
+- Updating book availability
+- Retaining saved information after restarting the application
 
 ---
 
@@ -248,30 +294,31 @@ This prevents generated compilation files from being uploaded to GitHub.
 
 The completed application provides a functional Library Management System capable of:
 
-- Managing books
-- Managing library members
-- Searching for books
-- Issuing books
-- Returning books
+- Managing book records
+- Managing member records
+- Searching for books by title or author
+- Processing book issues
+- Processing book returns
 - Tracking book availability
-- Storing data using files
-- Retaining stored data after restarting the program
+- Storing records using text files
+- Retaining records between program executions
 
 ---
 
 ## Learning Outcomes
 
-Through this project, I practiced:
+Through this project, I practiced and improved my understanding of:
 
 - C++ programming
 - Object-Oriented Programming
 - Classes and objects
+- Functions
 - File handling
 - Data persistence
-- Searching records
-- Updating stored records
+- Searching and updating records
 - Application flow management
 - Organizing a C++ project
+- Compiling C++ programs using G++
 - Using Git and GitHub for version control
 
 ---
